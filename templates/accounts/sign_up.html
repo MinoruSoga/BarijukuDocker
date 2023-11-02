@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+<div id="intro">
+  <div class="d-flex align-items-center h-100">
+    <div class="container">
+      <h1 class="text-center mb-5">新規登録</h1>
+      <div class="row justify-content-center">
+        <div class="col-xl-5 col-md-8">
+          <form method="post" class="bg-white rounded shadow-5-strong p-5">
+            {% csrf_token %}
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              {{ form.username|add_class:'form-control form-control-lg' }}
+              <label class="form-label" for="{{ form.username.id_for_label }}">ログインID</label>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-outline mb-4">
+                  {{ form.last_name|add_class:'form-control form-control-lg' }}
+                  <label class="form-label" for="{{ form.last_name.id_for_label }}">性</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-outline mb-4">
+                  {{ form.first_name|add_class:'form-control form-control-lg' }}
+                  <label class="form-label" for="{{ form.first_name.id_for_label }}">名</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-outline mb-4">
+              {{ form.email|add_class:'form-control form-control-lg' }}
+              <label class="form-label" for="{{ form.email.id_for_label }}">メールアドレス</label>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              {{ form.password1|add_class:'form-control form-control-lg' }}
+              <label class="form-label" for="{{ form.password1.id_for_label }}">パスワード</label>
+            </div>
+            <div class="form-outline mb-4">
+              {{ form.password2|add_class:'form-control form-control-lg' }}
+              <label class="form-label" for="{{ form.password2.id_for_label }}">確認用パスワード</label>
+            </div>
+            {% for error in form.username.errors %}
+            <p class="note note-light">
+              <strong>{{ error }}</strong>
+            </p>
+            {% endfor %}
+            {% for error in form.last_name.errors %}
+            <p class="note note-light">
+              <strong>{{ error }}</strong>
+            </p>
+            {% endfor %}
+            {% for error in form.first_name.errors %}
+            <p class="note note-light">
+              <strong>{{ error }}</strong>
+            </p>
+            {% endfor %}
+            {% for error in form.email.errors %}
+            <p class="note note-light">
+              <strong>{{ error }}</strong>
+            </p>
+            {% endfor %}
+            {% for error in form.password1.errors %}
+            <p class="note note-light">
+              <strong>{{ error }}</strong>
+            </p>
+            {% endfor %}
+            {% for error in form.password2.errors %}
+            <p class="note note-light">
+              <strong>{{ error }}</strong>
+            </p>
+            {% endfor %}
+
+
+
+            <!-- 2 column grid layout for inline styling -->
+            {% comment %} <div class="row mb-4">
+              <div class="col d-flex justify-content-center">
+                <!-- Checkbox -->
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+                  <label class="form-check-label" for="form1Example3">
+                    Remember me
+                  </label>
+                </div>
+              </div>
+
+              <div class="col text-center">
+                <!-- Simple link -->
+                <a href="#!">Forgot password?</a>
+              </div>
+            </div> {% endcomment %}
+
+            <!-- Submit button -->
+            {% comment %} <button type="submit" class="btn btn-primary btn-block">新規登録</button> {% endcomment %}
+            <button type="submit" class="btn btn-outline-primary btn-rounded btn-block btn-lg">新 規 登 録</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} {{ form }} {% endcomment %}
+{% endblock %}

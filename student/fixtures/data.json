@@ -1,0 +1,705 @@
+[{
+  "model": "student.schoolcategory",
+  "pk": 1,
+  "fields": {
+    "school_category": "小学校"
+  }
+}, {
+  "model": "student.schoolcategory",
+  "pk": 2,
+  "fields": {
+    "school_category": "中学校"
+  }
+}, {
+  "model": "student.schoolcategory",
+  "pk": 3,
+  "fields": {
+    "school_category": "高等学校"
+  }
+}, {
+  "model": "student.school",
+  "pk": 1,
+  "fields": {
+    "school": "吹揚小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 2,
+  "fields": {
+    "school": "別宮小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 3,
+  "fields": {
+    "school": "常盤小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 4,
+  "fields": {
+    "school": "近見小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 5,
+  "fields": {
+    "school": "立花小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 6,
+  "fields": {
+    "school": "鳥生小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 7,
+  "fields": {
+    "school": "桜井小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 8,
+  "fields": {
+    "school": "国分小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 9,
+  "fields": {
+    "school": "富田小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 10,
+  "fields": {
+    "school": "清水小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 11,
+  "fields": {
+    "school": "日高小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 12,
+  "fields": {
+    "school": "乃万小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 13,
+  "fields": {
+    "school": "波止浜小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 14,
+  "fields": {
+    "school": "朝倉小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 15,
+  "fields": {
+    "school": "鴨部小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 16,
+  "fields": {
+    "school": "九和小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 17,
+  "fields": {
+    "school": "波方小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 18,
+  "fields": {
+    "school": "大西小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 19,
+  "fields": {
+    "school": "亀岡小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 20,
+  "fields": {
+    "school": "菊間小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 21,
+  "fields": {
+    "school": "吉海小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 22,
+  "fields": {
+    "school": "宮窪小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 23,
+  "fields": {
+    "school": "伯方小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 24,
+  "fields": {
+    "school": "上浦小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 25,
+  "fields": {
+    "school": "大三島小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 26,
+  "fields": {
+    "school": "岡村小学校",
+    "school_category": 1
+  }
+}, {
+  "model": "student.school",
+  "pk": 27,
+  "fields": {
+    "school": "日吉中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 28,
+  "fields": {
+    "school": "近見中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 29,
+  "fields": {
+    "school": "立花中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 30,
+  "fields": {
+    "school": "桜井中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 31,
+  "fields": {
+    "school": "南中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 32,
+  "fields": {
+    "school": "西中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 33,
+  "fields": {
+    "school": "北郷中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 34,
+  "fields": {
+    "school": "朝倉中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 35,
+  "fields": {
+    "school": "玉川中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 36,
+  "fields": {
+    "school": "大西中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 37,
+  "fields": {
+    "school": "菊間中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 38,
+  "fields": {
+    "school": "大島中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 39,
+  "fields": {
+    "school": "伯方中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 40,
+  "fields": {
+    "school": "大三島中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 41,
+  "fields": {
+    "school": "関前中学校",
+    "school_category": 2
+  }
+}, {
+  "model": "student.school",
+  "pk": 42,
+  "fields": {
+    "school": "愛媛県立今治北高等学校",
+    "school_category": 3
+  }
+}, {
+  "model": "student.school",
+  "pk": 43,
+  "fields": {
+    "school": "愛媛県立今治北高等学校　大三島分校",
+    "school_category": 3
+  }
+}, {
+  "model": "student.school",
+  "pk": 44,
+  "fields": {
+    "school": "愛媛県立今治工業高等学校",
+    "school_category": 3
+  }
+}, {
+  "model": "student.school",
+  "pk": 45,
+  "fields": {
+    "school": "今治精華高等学校",
+    "school_category": 3
+  }
+}, {
+  "model": "student.school",
+  "pk": 46,
+  "fields": {
+    "school": "愛媛県立今治西高等学校",
+    "school_category": 3
+  }
+}, {
+  "model": "student.school",
+  "pk": 47,
+  "fields": {
+    "school": "愛媛県立今治西高等学校　伯方分校",
+    "school_category": 3
+  }
+}, {
+  "model": "student.school",
+  "pk": 48,
+  "fields": {
+    "school": "愛媛県立今治南高等学校",
+    "school_category": 3
+  }
+}, {
+  "model": "student.school",
+  "pk": 49,
+  "fields": {
+    "school": "今治明徳高等学校",
+    "school_category": 3
+  }
+}, {
+  "model": "student.school",
+  "pk": 50,
+  "fields": {
+    "school": "今治明徳高等学校　矢田分校",
+    "school_category": 3
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 1,
+  "fields": {
+    "club_activity": "野球部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 2,
+  "fields": {
+    "club_activity": "ボート部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 3,
+  "fields": {
+    "club_activity": "水泳部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 4,
+  "fields": {
+    "club_activity": "バレーボール部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 5,
+  "fields": {
+    "club_activity": "サッカー部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 6,
+  "fields": {
+    "club_activity": "バスケットボール部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 7,
+  "fields": {
+    "club_activity": "陸上競技部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 8,
+  "fields": {
+    "club_activity": "バドミントン部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 9,
+  "fields": {
+    "club_activity": "卓球部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 10,
+  "fields": {
+    "club_activity": "テニス部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 11,
+  "fields": {
+    "club_activity": "ソフトテニス部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 12,
+  "fields": {
+    "club_activity": "柔道部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 13,
+  "fields": {
+    "club_activity": "剣道部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 14,
+  "fields": {
+    "club_activity": "弓道部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 15,
+  "fields": {
+    "club_activity": "ダンス部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 16,
+  "fields": {
+    "club_activity": "ハンドボール部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 17,
+  "fields": {
+    "club_activity": "空手道部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 18,
+  "fields": {
+    "club_activity": "理科部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 19,
+  "fields": {
+    "club_activity": "ワープロ部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 20,
+  "fields": {
+    "club_activity": "文芸部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 21,
+  "fields": {
+    "club_activity": "美術部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 22,
+  "fields": {
+    "club_activity": "写真部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 23,
+  "fields": {
+    "club_activity": "クッキング部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 24,
+  "fields": {
+    "club_activity": "電卓部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 25,
+  "fields": {
+    "club_activity": "珠算部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 26,
+  "fields": {
+    "club_activity": "書道部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 27,
+  "fields": {
+    "club_activity": "茶道部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 28,
+  "fields": {
+    "club_activity": "郷土研究部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 29,
+  "fields": {
+    "club_activity": "吹奏楽部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 30,
+  "fields": {
+    "club_activity": "国際交流部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 31,
+  "fields": {
+    "club_activity": "商業研究部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 32,
+  "fields": {
+    "club_activity": "簿記部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 33,
+  "fields": {
+    "club_activity": "コンピュータ部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 34,
+  "fields": {
+    "club_activity": "放送部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 35,
+  "fields": {
+    "club_activity": "箏部"
+  }
+}, {
+  "model": "student.clubactivity",
+  "pk": 36,
+  "fields": {
+    "club_activity": "華道部"
+  }
+}, {
+  "model": "student.subject",
+  "pk": 1,
+  "fields": {
+    "subject": "国語",
+    "grade": null,
+    "school_category": 1
+  }
+}, {
+  "model": "student.subject",
+  "pk": 2,
+  "fields": {
+    "subject": "算数",
+    "grade": null,
+    "school_category": 1
+  }
+}, {
+  "model": "student.subject",
+  "pk": 3,
+  "fields": {
+    "subject": "理科",
+    "grade": null,
+    "school_category": 1
+  }
+}, {
+  "model": "student.subject",
+  "pk": 4,
+  "fields": {
+    "subject": "社会",
+    "grade": null,
+    "school_category": 1
+  }
+}, {
+  "model": "student.subject",
+  "pk": 5,
+  "fields": {
+    "subject": "英語",
+    "grade": null,
+    "school_category": 1
+  }
+}, {
+  "model": "student.subject",
+  "pk": 6,
+  "fields": {
+    "subject": "国語",
+    "grade": null,
+    "school_category": 2
+  }
+}, {
+  "model": "student.subject",
+  "pk": 7,
+  "fields": {
+    "subject": "数学",
+    "grade": null,
+    "school_category": 2
+  }
+}, {
+  "model": "student.subject",
+  "pk": 8,
+  "fields": {
+    "subject": "理科",
+    "grade": null,
+    "school_category": 2
+  }
+}, {
+  "model": "student.subject",
+  "pk": 9,
+  "fields": {
+    "subject": "社会",
+    "grade": null,
+    "school_category": 2
+  }
+}, {
+  "model": "student.subject",
+  "pk": 10,
+  "fields": {
+    "subject": "英語",
+    "grade": null,
+    "school_category": 2
+  }
+}, {
+  "model": "student.subject",
+  "pk": 11,
+  "fields": {
+    "subject": "国語",
+    "grade": null,
+    "school_category": 3
+  }
+}, {
+  "model": "student.subject",
+  "pk": 12,
+  "fields": {
+    "subject": "数学",
+    "grade": null,
+    "school_category": 3
+  }
+}, {
+  "model": "student.subject",
+  "pk": 13,
+  "fields": {
+    "subject": "理科",
+    "grade": null,
+    "school_category": 3
+  }
+}, {
+  "model": "student.subject",
+  "pk": 14,
+  "fields": {
+    "subject": "社会",
+    "grade": null,
+    "school_category": 3
+  }
+}, {
+  "model": "student.subject",
+  "pk": 15,
+  "fields": {
+    "subject": "英語",
+    "grade": null,
+    "school_category": 3
+  }
+}]

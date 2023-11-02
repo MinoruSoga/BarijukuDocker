@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+ 
+{% block content %}
+<div id="top">
+  <div class="d-flex align-items-center h-100">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-4 col-md-4 col-8">
+          <img src="{% static 'img/logo.jpeg' %}" alt="Barijuku Logo" class="w-100 center my-5"/>
+            <a href="{% url 'user:login' %}" class="btn btn-outline-primary btn-rounded btn-block btn-lg">ログインページへ</a>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

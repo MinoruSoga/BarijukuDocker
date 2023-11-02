@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+<div id="intro">
+  <div class="d-flex align-items-center h-100">
+    <div class="container">
+      <h1 class="text-center mb-5">新規登録</h1>
+      <div class="row justify-content-center">
+        <div class="col-xl-5 col-md-8">
+          <form method="post" class="bg-white rounded shadow-5-strong p-5">
+            {% csrf_token %}
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              {{ form.username|add_class:'form-control form-control-lg' }}
+              <label class="form-label" for="{{ form.username.id_for_label }}">ログインID</label>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              {{ form.password1|add_class:'form-control form-control-lg' }}
+              <label class="form-label" for="{{ form.password1.id_for_label }}">パスワード</label>
+            </div>
+            <div class="form-outline mb-4">
+              {{ form.password2|add_class:'form-control form-control-lg' }}
+              <label class="form-label" for="{{ form.password2.id_for_label }}">確認用パスワード</label>
+            </div>
+            {% for error in form.username.errors %}
+            <p class="note note-light">
+              <strong>{{ error }}</strong>
+            </p>
+            {% endfor %}
+            {% for error in form.password1.errors %}
+            <p class="note note-light">
+              <strong>{{ error }}</strong>
+            </p>
+            {% endfor %}
+            {% for error in form.password2.errors %}
+            <p class="note note-light">
+              <strong>{{ error }}</strong>
+            </p>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-outline-primary btn-rounded btn-block btn-lg">新 規 登 録</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

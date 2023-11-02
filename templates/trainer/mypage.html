@@ -1,0 +1,133 @@
+{% extends 'trainer/base.html' %}
+
+
+{% block content %}
+<div id="trainer-top" class="mt-5 mb-5">
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
+  </ul>
+  {% endif %}  
+  <div class="container my-5">
+    <h5 class="text-center mb-5">マイページ</h5>
+    <div class="row">
+      <div class="col-md-7 mx-auto">
+        <div class="card mb-3">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="my-auto">ログイン情報 </h5>
+          </div>
+          <div class="card-body">
+            {% comment %} <h5 class="card-title">ログイン情報</h5> {% endcomment %}
+              <table class="table card-text">
+                <tbody>
+                  <tr>
+                    <th>ログインID</th>
+                    <th>{{ user_login_id }}</th>
+                  </tr>
+                  <tr>
+                    <th>パスワード</th>
+                    <td><a href="{% url 'accounts:password_change' %}" class="btn btn-outline-info btn-rounded">パスワード変更はこちら</a></td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 mx-auto">
+        <div class="card mb-3">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="my-auto">登録情報 </h5>
+            <a href="{% url 'trainer:prof' %}" class="btn btn-outline-success btn-rounded text-right">編集する</a>
+          </div>
+
+          <div class="card-body">
+            {% comment %} <h5 class="card-title">登録情報 <a class="btn btn-outline-success btn-rounded text-right">Success</a>
+            </h5> {% endcomment %}
+              <table class="table card-text">
+                <tbody>
+
+                  <tr>
+                    <th>氏名</th>
+                    <th>{{ trainer.first_name }} {{ trainer.last_name }}</th>
+                  </tr>
+                  <tr>
+                    <th>氏名　カナ</th>
+                    <th>{{ trainer.first_name_kana }} {{ trainer.last_name_kana }}</th>
+                  </tr>
+                  {% if trainer.school %}
+                  <tr>
+                    <th>学校名</th>
+                    <th>{{ trainer.school }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if trainer.grade and trainer.school_class %}
+                  <tr>
+                    <th>学年/組</th>
+                    <th>{{ trainer.grade }} / {{ trainer.school_class }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if trainer.club_activity %}
+                  <tr>
+                    <th>部活動</th>
+                    <th>{{ trainer.club_activity }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if trainer.phone_number %}
+                  <tr>
+                    <th>電話番号</th>
+                    <th>{{ trainer.phone_number }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if trainer.parent_first_name %}
+                  <tr>
+                    <th>氏名(保護者)</th>
+                    <th>{{ trainer.parent_first_name }} {{ trainer.parent_last_name }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if trainer.parent_first_name_kana %}
+                  <tr>
+                    <th>氏名　カナ(保護者)</th>
+                    <th>{{ trainer.parent_first_name_kana }} {{ trainer.parent_last_name_kana }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if trainer.parent_phone_number %}
+                  <tr>
+                    <th>電話番号(保護者)</th>
+                    <th>{{ trainer.parent_phone_number }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if trainer.parent_email %}
+                  <tr>
+                    <th>メールアドレス(保護者)</th>
+                    <th>{{ trainer.parent_email }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if trainer.zipcode %}
+                  <tr>
+                    <th>郵便番号</th>
+                    <th>{{ trainer.zipcode }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if trainer.prefecture %}
+                  <tr>
+                    <th>都道府県/市町村</th>
+                    <th>{{ trainer.prefecture }} / {{ trainer.city }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if trainer.address %}
+                  <tr>
+                    <th>住所</th>
+                    <th>{{ trainer.address }}</th>
+                  </tr>
+                  {% endif %}
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

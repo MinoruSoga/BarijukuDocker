@@ -1,0 +1,10 @@
+.history/
+myvenv/
+app/__pycache__
+app/migrations/__pycache__
+barijuku/__pycache__
+student/__pycache__
+student/migrations/__pycache__
+trainer/__pycache__
+trainer/migrations/__pycache__
+.env

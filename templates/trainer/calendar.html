@@ -1,0 +1,185 @@
+{% extends 'trainer/base.html' %}
+{% load calendar %}
+
+{% block content %}
+<div id="trainer-calendar">
+  <div class="container my-5">
+
+    <div class="table-responsive">
+      <p>{{ start_day }} - {{ end_day }} <a href="{% url 'trainer:calendar' student.pk today.year today.month today.day %}" class="btn btn-outline-primary btn-rounded" data-mdb-ripple-color="dark">今日</a> </p>
+
+      {% comment %} <table class="table table-bordered text-center" style="table-layout: fixed;width: 100%" border="1">
+        {% endcomment %}
+        <table class="table text-center table-bordered">
+          <thead>
+            <tr>
+              <td>
+                {% if today <= before %}
+                <a href="{% url 'trainer:calendar' student.pk before.year before.month before.day %}">前週</a>
+                {% endif %}
+              </td>
+              {% for day in days %}
+              {% if day in public_holidays %}
+              <th style="background-color: yellow">{{ day | date:"d(D)" }}</th>
+              {% elif day.weekday == 5 %}
+              <th style="color: blue;">{{ day | date:"d(D)" }}</th>
+              {% elif day.weekday == 6 %}
+              <th style="color: red;">{{ day | date:"d(D)" }}</th>
+              {% else %}
+              <th>{{ day | date:"d(D)" }}</th>
+              {% endif %}
+              {% endfor %}
+              <td><a href="{% url 'trainer:calendar' student.pk next.year next.month next.day %}">次週</a></td>
+            </tr>
+          </thead>
+          <tbody>
+
+            {% for hour, schedules in calendar.items %}
+            {% comment %} <tr style="font-size:12px"> {% endcomment %}
+            <tr>
+              <th class="table-fixed">
+                {{ hour }}
+              </th>
+              {% for dt, book in schedules.items %}
+              {% comment %} <td> {% endcomment %}
+                {% is_1hour_later dt hour as ok %}
+                {% if not ok %}
+              <td>
+                -
+              </td>
+              {% elif book %}
+              <td class="bg-primary text-white">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-mdb-toggle="modal"
+                  data-mdb-target="#addModal_{{ book }}">
+                  入室予定
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="addModal_{{ book }}" tabindex="-1" aria-labelledby="addModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content text-black">
+                      {% comment %} <form method="post" action="{% url 'student:calendar_update' %}"> {% endcomment %}
+                      <form method="post">
+                        <input type="hidden" name="id" value="{{ book }}">
+                        {% csrf_token %}
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="addModalLabel">面談を追加する</h5>
+                          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="row mb-4 align-items-center">
+                            <div class="col-5">
+                              日付
+                            </div>
+                            <div class="col-7">
+                              <input type="date" class="form-control" min="{{ selected_today }}" readonly
+                                value="{{ dt|date:"Y-m-d"}}" name="date">
+                            </div>
+                          </div>
+                          <div class="row mb-4 align-items-center">
+                            <div class="col-5">
+                              開始時間を選択
+                            </div>
+                            <div class="col-7">
+                              {% get_start_time_from_id book as start_time %}
+                              {% get_end_time_from_id book as end_time %}
+                              <select class="form-select form-select-lg" name="start_date" required>
+                                <option value="">未選択</option>
+                                {% for option_time in option_times %}
+                                {% if start_time <= option_time and end_time > option_time %}
+                                <option value="{{ option_time }}">{{ option_time }}</option>
+                                {% endif %}
+                                {% endfor %}
+                              </select>
+                            </div>
+                          </div>
+                          <div class="row align-items-center">
+
+                            <div class="col-12">
+                              所要時間30分
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary">変更する</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+              </td>
+              {% else %}
+              <td>
+                -
+              </td>
+
+              {% endif %}
+              {% comment %} </td> {% endcomment %}
+              {% endfor %}
+              <td>
+                {{ hour }}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary btn-lg btn-floating" data-mdb-toggle="modal"
+    data-mdb-target="#addEventModal" id="plus-floating">
+    <i class="fas fa-plus fa-2x"></i>
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="addEventModal" tabindex="-1" aria-labelledby="addEventModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content text-black">
+        <form method="post">
+          {% csrf_token %}
+          <div class="modal-header">
+            <h5 class="modal-title" id="addEventModalLabel">面談を追加する</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <div class="row mb-4 align-items-center">
+              <div class="col-5">
+                日付を選択
+              </div>
+              <div class="col-7">
+                <input type="date" class="form-control" min="{{ selected_today }}" required value="{{ selected_today }}"
+                  name="date">
+              </div>
+            </div>
+            <div class="row mb-4 align-items-center">
+              <div class="col-5">
+                開始時間を選択
+              </div>
+              <div class="col-7">
+                <select class="form-select form-select-lg" name="start_date" required>
+                  <option value="">未選択</option>
+                  {% for option_time in option_times %}
+                  <option value="{{ option_time }}">{{ option_time }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-12">
+                所要時間30分
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">追加</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

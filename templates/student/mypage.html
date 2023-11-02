@@ -1,0 +1,214 @@
+{% extends 'student/base.html' %}
+
+
+{% block content %}
+<div id="student-top" class="mt-5 mb-5">
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
+  </ul>
+  {% endif %}  
+  <div class="container my-5">
+    <h5 class="text-center mb-5">マイページ</h5>
+    <div class="row">
+      <div class="col-md-7 mx-auto">
+        <div class="card mb-3">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="my-auto">ログイン情報 </h5>
+          </div>
+          <div class="card-body">
+            {% comment %} <h5 class="card-title">ログイン情報</h5> {% endcomment %}
+              <table class="table card-text">
+                <tbody>
+                  <tr>
+                    <th>ログインID</th>
+                    <th>{{ user_login_id }}</th>
+                  </tr>
+                  <tr>
+                    {% comment %} <th>パスワード</th>
+                    <td><a href="{% url 'accounts:password_change' %}" class="btn btn-outline-info btn-rounded">パスワード変更はこちら</a></td> {% endcomment %}
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 mx-auto">
+        <div class="card mb-3">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="my-auto">登録情報 </h5>
+            <a href="{% url 'student:prof' %}" class="btn btn-outline-success btn-rounded text-right">編集する</a>
+          </div>
+
+          <div class="card-body">
+            {% comment %} <h5 class="card-title">登録情報 <a class="btn btn-outline-success btn-rounded text-right">Success</a>
+            </h5> {% endcomment %}
+              <table class="table card-text">
+                <tbody>
+
+                  <tr>
+                    <th>氏名</th>
+                    <th>{{ student.first_name }} {{ student.last_name }}</th>
+                  </tr>
+                  <tr>
+                    <th>氏名　カナ</th>
+                    <th>{{ student.first_name_kana }} {{ student.last_name_kana }}</th>
+                  </tr>
+                  {% if student.school %}
+                  <tr>
+                    <th>学校名</th>
+                    <th>{{ student.school }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if student.grade and student.school_class %}
+                  <tr>
+                    <th>学年/組</th>
+                    <th>{{ student.grade }} / {{ student.school_class }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if student.club_activity %}
+                  <tr>
+                    <th>部活動</th>
+                    <th>{{ student.club_activity }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if student.phone_number %}
+                  <tr>
+                    <th>電話番号</th>
+                    <th>{{ student.phone_number }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if student.parent_first_name %}
+                  <tr>
+                    <th>氏名(保護者)</th>
+                    <th>{{ student.parent_first_name }} {{ student.parent_last_name }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if student.parent_first_name_kana %}
+                  <tr>
+                    <th>氏名　カナ(保護者)</th>
+                    <th>{{ student.parent_first_name_kana }} {{ student.parent_last_name_kana }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if student.parent_phone_number %}
+                  <tr>
+                    <th>電話番号(保護者)</th>
+                    <th>{{ student.parent_phone_number }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if student.parent_email %}
+                  <tr>
+                    <th>メールアドレス(保護者)</th>
+                    <th>{{ student.parent_email }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if student.zipcode %}
+                  <tr>
+                    <th>郵便番号</th>
+                    <th>{{ student.zipcode }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if student.prefecture %}
+                  <tr>
+                    <th>都道府県/市町村</th>
+                    <th>{{ student.prefecture }} / {{ student.city }}</th>
+                  </tr>
+                  {% endif %}
+                  {% if student.address %}
+                  <tr>
+                    <th>住所</th>
+                    <th>{{ student.address }}</th>
+                  </tr>
+                  {% endif %}
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 mx-auto">
+        <div class="card mb-3">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="my-auto">契約内容</h5>
+          </div>
+          <div class="card-body">
+            {% comment %} <h5 class="card-title">契約内容</h5> {% endcomment %}
+              <table class="table card-text">
+                <tbody>
+
+                  <tr>
+                    <th>申込日</th>
+                    <th>{{ student.entry_date }}</th>
+                  </tr>
+                  <tr>
+                    <th>有効期限</th>
+                    <th>
+                      {{ student.expiration_date }}
+                      {% if not student.unsubscribe_request %}
+                      <br>
+                      <small>※自動更新されます。</small>
+                      {% endif %}
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>退塾</th>
+                    <th>
+                      {% if student.unsubscribe_request %}
+                      <button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#subscribeModal">退塾処理済みです</button>
+                      {% else %}
+                      <button type="button" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark" data-mdb-toggle="modal" data-mdb-target="#unsubscribeModal">退塾申請へ</button>
+                      
+                      {% endif %}
+                      <!-- Modal -->
+                      {% comment %} 退塾キャンセル {% endcomment %}
+                      <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="subscribeModalLabel">退塾処理をキャンセル</h5>
+                              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">{{ student.expiration_date }}までなら退塾をキャンセルできます。</div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">閉じる</button>
+                              <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="status" value="cancel_unsubscribe">
+                                <button type="submit" class="btn btn-danger">退塾をキャンセルする</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {% comment %} 退塾手続き {% endcomment %}
+                      <div class="modal fade" id="unsubscribeModal" tabindex="-1" aria-labelledby="unsubscribeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="unsubscribeModalLabel">退塾申請</h5>
+                              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">退塾申請を行なっても、{{ student.expiration_date }}まで利用できます。</div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">閉じる</button>
+                              <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="status" value="unsubscribe">
+                                <button type="submit" class="btn btn-danger">退塾する</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

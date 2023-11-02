@@ -1,0 +1,501 @@
+[{
+  "model": "app.prefecture",
+  "pk": 1,
+  "fields": {
+    "prefecture": "北海道",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 2,
+  "fields": {
+    "prefecture": "青森県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 3,
+  "fields": {
+    "prefecture": "岩手県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 4,
+  "fields": {
+    "prefecture": "宮城県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 5,
+  "fields": {
+    "prefecture": "秋田県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 6,
+  "fields": {
+    "prefecture": "山形県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 7,
+  "fields": {
+    "prefecture": "福島県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 8,
+  "fields": {
+    "prefecture": "茨城県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 9,
+  "fields": {
+    "prefecture": "栃木県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 10,
+  "fields": {
+    "prefecture": "群馬県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 11,
+  "fields": {
+    "prefecture": "埼玉県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 12,
+  "fields": {
+    "prefecture": "千葉県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 13,
+  "fields": {
+    "prefecture": "東京都",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 14,
+  "fields": {
+    "prefecture": "神奈川県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 15,
+  "fields": {
+    "prefecture": "新潟県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 16,
+  "fields": {
+    "prefecture": "富山県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 17,
+  "fields": {
+    "prefecture": "石川県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 18,
+  "fields": {
+    "prefecture": "福井県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 19,
+  "fields": {
+    "prefecture": "山梨県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 20,
+  "fields": {
+    "prefecture": "長野県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 21,
+  "fields": {
+    "prefecture": "岐阜県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 22,
+  "fields": {
+    "prefecture": "静岡県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 23,
+  "fields": {
+    "prefecture": "愛知県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 24,
+  "fields": {
+    "prefecture": "三重県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 25,
+  "fields": {
+    "prefecture": "滋賀県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 26,
+  "fields": {
+    "prefecture": "京都府",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 27,
+  "fields": {
+    "prefecture": "大阪府",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 28,
+  "fields": {
+    "prefecture": "兵庫県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 29,
+  "fields": {
+    "prefecture": "奈良県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 30,
+  "fields": {
+    "prefecture": "和歌山県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 31,
+  "fields": {
+    "prefecture": "鳥取県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 32,
+  "fields": {
+    "prefecture": "島根県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 33,
+  "fields": {
+    "prefecture": "岡山県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 34,
+  "fields": {
+    "prefecture": "広島県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 35,
+  "fields": {
+    "prefecture": "山口県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 36,
+  "fields": {
+    "prefecture": "徳島県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 37,
+  "fields": {
+    "prefecture": "香川県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 38,
+  "fields": {
+    "prefecture": "愛媛県",
+    "is_active": true
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 39,
+  "fields": {
+    "prefecture": "高知県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 40,
+  "fields": {
+    "prefecture": "福岡県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 41,
+  "fields": {
+    "prefecture": "佐賀県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 42,
+  "fields": {
+    "prefecture": "長崎県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 43,
+  "fields": {
+    "prefecture": "熊本県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 44,
+  "fields": {
+    "prefecture": "大分県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 45,
+  "fields": {
+    "prefecture": "宮崎県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 46,
+  "fields": {
+    "prefecture": "鹿児島県",
+    "is_active": false
+  }
+}, {
+  "model": "app.prefecture",
+  "pk": 47,
+  "fields": {
+    "prefecture": "沖縄県",
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 382019,
+  "fields": {
+    "city": "松山市",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 382027,
+  "fields": {
+    "city": "今治市",
+    "prefecture": 38,
+    "is_active": true
+  }
+}, {
+  "model": "app.city",
+  "pk": 382035,
+  "fields": {
+    "city": "宇和島市",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 382043,
+  "fields": {
+    "city": "八幡浜市",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 382051,
+  "fields": {
+    "city": "新居浜市",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 382060,
+  "fields": {
+    "city": "西条市",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 382078,
+  "fields": {
+    "city": "大洲市",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 382108,
+  "fields": {
+    "city": "伊予市",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 382132,
+  "fields": {
+    "city": "四国中央市",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 382141,
+  "fields": {
+    "city": "西予市",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 382159,
+  "fields": {
+    "city": "東温市",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 383562,
+  "fields": {
+    "city": "上島町",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 383864,
+  "fields": {
+    "city": "久万高原町",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 384011,
+  "fields": {
+    "city": "松前町",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 384020,
+  "fields": {
+    "city": "砥部町",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 384224,
+  "fields": {
+    "city": "内子町",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 384429,
+  "fields": {
+    "city": "伊方町",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 384844,
+  "fields": {
+    "city": "松野町",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 384887,
+  "fields": {
+    "city": "鬼北町",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.city",
+  "pk": 385069,
+  "fields": {
+    "city": "愛南町",
+    "prefecture": 38,
+    "is_active": false
+  }
+}, {
+  "model": "app.place",
+  "pk": 1,
+  "fields": {
+    "place_name": "今治商店街",
+    "postal_code": "7940015",
+    "prefecture": 38,
+    "city": 382027,
+    "address": "常磐町3丁目4-1",
+    "entry_date": "2023-04-01"
+  }
+}]

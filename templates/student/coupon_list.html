@@ -1,0 +1,68 @@
+{% extends 'student/base.html' %}
+
+
+{% block content %}
+<div id="student-top" class="mt-5 mb-5">
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+    <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  <div class="container my-5">
+    {% if student_coupons %}
+    <h5 class="text-center mb-5">利用可能クーポン</h5>
+    <div class="row">
+      {% for student_coupon in student_coupons %}
+      <div class="col-md-4 mx-auto">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">{{ student_coupon.coupon.title }}</h5>
+            <p class="card-text">割引金額: {{ student_coupon.coupon.price }}</p>
+            <button type="button" class="btn btn-outline-primary btn-rounded" data-mdb-ripple-color="dark"
+              data-mdb-toggle="modal" data-mdb-target="#qrModal{{ student_coupon.id }}">QRコードを表示</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add the modal markup inside the loop -->
+      <div class="modal fade" id="qrModal{{ student_coupon.id }}" tabindex="-1"
+        aria-labelledby="qrModalLabel{{ student_coupon.id }}" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="qrModalLabel{{ student_coupon.id }}">{{ student_coupon.coupon.title }}</h5>
+              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>QRコードを表示しています。</p>
+              <img src="{% url 'student:qrcode' student_coupon.code %}" alt="QRコード" class="img-fluid w-100">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">閉じる</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <h5 class="text-center my-5">利用済みクーポン</h5>
+    {% for student_used_coupon in student_used_coupons %}
+      <div class="col-md-4 mx-auto">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">{{ student_used_coupon.coupon.title }}</h5>
+            <p class="card-text">割引金額: {{ student_used_coupon.coupon.price }}</p>
+            <p class="card-text">利用店舗: {{ student_used_coupon.shop }}</p>
+            <p class="card-text">利用日時: {{ student_used_coupon.used_date }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <h5 class="text-center my-5">現在、利用可能なクーポンはありません</h5>
+    {% endif %}
+</div>
+{% endblock %}

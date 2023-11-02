@@ -1,0 +1,60 @@
+{% extends 'student/base.html' %}
+{% block content %}
+{% load tz %}
+{% now "Y-m-d" as current_date %}
+<div id="student-top">
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="row">
+          <div class="col-12 mb-2">
+            <div class="card border border-dark mb-3">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Atama+</h5>
+                <a href="#" class="btn btn-outline-primary btn-rounded">ログインページへ</a>
+              </div>
+              <div class="card-body text-dark p-3">
+                <p class="card-text">ログインID: {{ atama_plus.login_id }}</p>
+                <p class="card-text">パスワード: {{ atama_plus.password }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 mb-2">
+            <div class="card border border-dark mb-3">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">スタディサプリ</h5>
+                <a href="#" class="btn btn-outline-primary btn-rounded">ログインページへ</a>
+              </div>
+              <div class="card-body text-dark p-3">
+                <p class="card-text">ログインID: {{ study_sapuri.login_id }}</p>
+                <p class="card-text">パスワード: {{ study_sapuri.password }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <h5 class="">今後の予定</h5>
+        {% for calendar in calendars %}
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">入室{% if calendar.start_date|date:"Y-m-d" == current_date %}(本日){% endif %}</h5>
+            <p class="card-text">{{ calendar.start_date|date:"Y年m月d日" }}　{{ calendar.start_date|date:"H時i分" }}〜 {{ calendar.end_date|date:"H時i分" }}</p>
+          </div>
+        </div>
+        {% for meeting_schedule in meeting_schedules %}
+        {% if calendar.start_date|date:"Y-m-d" == meeting_schedule.start_date|date:"Y-m-d" and calendar.start_date <= meeting_schedule.start_date and calendar.end_date >= meeting_schedule.end_date %}
+        <div class="card mb-3 border border-primary">
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">面談{% if calendar.start_date|date:"Y-m-d" == current_date %}(本日){% endif %}<span class="small">面談相手：{{ meeting_schedule.trainer.first_name }}{{ meeting_schedule.trainer.last_name }}</span></h5>
+            <p class="card-text">{{ meeting_schedule.start_date|date:"Y年m月d日" }}　{{ meeting_schedule.start_date|date:"H時i分" }}〜 {{ meeting_schedule.end_date|date:"H時i分" }}</p>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

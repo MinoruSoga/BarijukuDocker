@@ -1,0 +1,110 @@
+{% extends 'student/base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="meeting" class="mt-5 mb-5">
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
+  </ul>
+  {% endif %}  
+
+  <div class="d-flex align-items-center h-100">
+    <div class="container">
+      <h1 class="text-center my-5">ChatGPT</h1>
+      <div class="note note-danger mb-3">
+        <strong>注意書き:</strong> ChatGPTは2021年9月までの情報しかありませんので、それ以降の情報は<a href="https://www.google.com/" target="_blank">Google検索</a>、<a href="https://www.bing.com/?cc=jp" target="_blank">Bing検索</a>で調べてください。
+      </div>
+
+      {% for chat_gpt_log in chat_gpt_logs %}
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-2 col-md-1 d-flex align-items-center justify-content-center">
+            {{ student.first_name }}
+            <br>
+            {{ student.last_name }}
+          </div>
+          <div class="col-10">
+            <div class="card-body">
+              <p class="card-text">
+                {{ chat_gpt_log.request_content }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-1 d-flex align-items-center justify-content-center">
+            <img src="{% static 'img/ChatGPT_logo.png' %}" height="40" alt="ChatGPT" />
+          </div>
+          <div class="col-11">
+            <div class="card-body">
+              <p class="card-text">
+                {{ chat_gpt_log.response_content }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+
+      <div class="row justify-content-center">
+        <div class="col-xl-10 col-md-12">
+          <form method="post" class="bg-white rounded shadow-5-strong p-3 p-md-5" id="chatgpt-form">
+            {% csrf_token %}
+            <div class="form-outline mb-5">
+              <textarea class="form-control" id="textArea" rows="20" name="content" maxlength="20"></textarea>
+              <label class="form-label" for="textArea">内容</label>
+            </div>
+            <button type="submit" class="btn btn-outline-primary btn-rounded btn-block btn-lg" id="submit">送信</button>
+            <div id="loading" style="display: none;">
+            {% comment %} <div id="loading"> {% endcomment %}
+              <button class="btn btn-outline-primary btn-rounded btn-block btn-lg" type="button" disabled>
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                返答待ちです...今の画面のまま10秒ほどお待ちください。
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
+<script>
+  document.getElementById('chatgpt-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+  
+      // ローディング要素を表示
+      document.getElementById('loading').style.display = 'block';
+      document.getElementById('submit').style.display = 'none';
+  
+      // FormDataを使ってフォームデータを取得
+      let formData = new FormData(event.target);
+  
+      // POSTリクエストを実行
+      fetch(event.target.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+              'X-CSRFToken': document.getElementsByName('csrfmiddlewaretoken')[0].value
+          },
+      })
+      .then(response => response.text())
+      .then(responseText => {
+          // ローディング要素を非表示にする
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('submit').style.display = 'block';
+  
+          location.reload();
+      })
+      .catch(error => {
+          // エラー処理（例: エラーメッセージを表示）
+          console.error('Error:', error);
+      });
+  });
+  </script>
+{% endblock %}

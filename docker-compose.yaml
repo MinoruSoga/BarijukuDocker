@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8
+    container_name: barijuku_db
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: 'barijuku_db'
+      MYSQL_USER: 'barijuku'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    command: '--default-authentication-plugin=mysql_native_password'
+    ports:
+      - '3306:3306'
+
+  web:
+    build: .
+    command: gunicorn barijuku.wsgi:application --bind 0.0.0.0:8000
+    container_name: barijuku_web
+    volumes:
+      - .:/usr/src/app
+      - static_volume:/usr/src/app/static
+    expose:
+      - '8000'
+    depends_on:
+      - db
+    environment:
+      - "DATABASE_HOST=db"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - '80:80'
+    volumes:
+      - static_volume:/usr/share/nginx/html/static
+      - ./config/nginx:/etc/nginx/conf.d
+    depends_on:
+      - web
+    container_name: barijuku_nginx
+
+volumes:
+  mysql_data:
+  static_volume:

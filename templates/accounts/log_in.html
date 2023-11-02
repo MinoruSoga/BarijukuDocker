@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+ 
+{% block content %}
+<div id="intro">
+  <div class="d-flex align-items-center h-100">
+    <div class="container">
+      <h1 class="text-center mb-5">ログイン</h1>
+      <div class="row justify-content-center">
+        <div class="col-xl-5 col-md-8">
+          <form method="post" class="bg-white rounded shadow-5-strong p-5">
+            {% csrf_token %}
+            <div class="form-outline mb-4">
+              {{ form.username|add_class:'form-control' }}
+              {% for error in form.username.errors %}
+                <span class="help-block">{{ error }}</span>
+              {% endfor %}
+              <label class="form-label" for="{{ form.username.id_for_label }}">ユーザーID</label>
+            </div>
+            <div class="form-outline mb-4">
+              {{ form.password|add_class:'form-control' }}
+              {% for error in form.password.errors %}
+              <span class="help-block">{{ error }}</span>
+              {% endfor %}
+              <label class="form-label" for="{{ form.password.id_for_label }}">パスワード</label>
+            </div>
+            <button type="submit" class="btn btn-outline-primary btn-rounded btn-block btn-lg">ログイン</button>
+          </form>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

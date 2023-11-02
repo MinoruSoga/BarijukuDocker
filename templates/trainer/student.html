@@ -1,0 +1,29 @@
+{% extends 'trainer/base.html' %}
+
+
+{% block content %}
+<section id="trainer">
+  <div class="calendar">
+    <div class="container align-self-center">
+      <h5 class="text-center mb-5">生徒選択</h5>
+      <form method="post">
+        {% csrf_token %}
+        {% comment %} {{ form.login_id }}
+        {{ form.password }} {% endcomment %}
+        <div class="form-outline mb-4">
+          {% comment %} {{ form.login_id|add_class:'form-control' }}
+          <label class="form-label" for="{{ form.login_id.id_for_label }}">ログインID</label> {% endcomment %}
+          {% comment %} <label class="visually-hidden" for="inlineFormSelectPref">Preference</label> {% endcomment %}
+        <select class="form-select form-select-lg" name="student" required>
+          {% for student in students %}
+                  <option value="{{ student.pk }}">{{ student }}</option>
+            {% endfor %}
+        </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin: 20px auto 10%;">次へ</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

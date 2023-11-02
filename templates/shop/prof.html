@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+<div id="prof" class="mt-5 mb-5">
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
+  </ul>
+  {% endif %}  
+  <div class="d-flex align-items-center h-100">
+    <div class="container">
+      <h1 class="text-center mb-5">店舗情報</h1>
+      <div class="row justify-content-center">
+        <div class="col-xl-5 col-md-8">
+          <form method="post" class="bg-white rounded shadow-5-strong p-5" action="{% url 'shop:prof_update' %}">
+            {% csrf_token %}
+
+            <div class="mb-4">
+              <label class="form-label small mb-0" for="{{ form.shop_name.id_for_label }}">お店の名前</label>
+              {{ form.shop_name|add_class:'form-control' }}
+            </div>
+            <div class="mb-4">
+              <label class="form-label small mb-0" for="{{ form.email.id_for_label }}">メールアドレス</label>
+              {{ form.email|add_class:'form-control' }}
+            </div>
+            <div class="mb-4">
+              <label class="form-label small mb-0" for="{{ form.bank_name.id_for_label }}">銀行名</label>
+              {{ form.bank_name|add_class:'form-control' }}
+            </div>
+            <div class="mb-4">
+              <label class="form-label small mb-0" for="{{ form.branch_name.id_for_label }}">支店名</label>
+              {{ form.branch_name|add_class:'form-control' }}
+            </div>
+            <div class="mb-4">
+              <label class="form-label small mb-0" for="{{ form.account_number.id_for_label }}">口座番号</label>
+              {{ form.account_number|add_class:'form-control' }}
+            </div>
+            <div class="mb-4">
+              <label class="form-label small mb-0" for="{{ form.account_holder_name.id_for_label }}">口座名義</label>
+              {{ form.account_holder_name|add_class:'form-control' }}
+            </div>
+            
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-outline-primary btn-rounded btn-block btn-lg">保存</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

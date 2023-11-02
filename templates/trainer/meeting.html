@@ -1,0 +1,32 @@
+{% extends 'trainer/base.html' %}
+
+
+{% block content %}
+<div id="meeting" class="mt-5 mb-5">
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
+  </ul>
+  {% endif %}  
+  <div class="d-flex align-items-center h-100">
+    <div class="container">
+      <h1 class="text-center my-5">面談内容登録</h1>
+      <div class="row justify-content-center">
+        <div class="col-xl-10 col-md-12">
+          <form method="post" class="bg-white rounded shadow-5-strong p-5">
+            {% csrf_token %}
+            <div class="form-outline mb-5">
+              <textarea class="form-control" id="textArea" rows="20" name="content">{{ meeting }}</textarea>
+              <label class="form-label" for="textArea">内容</label>
+            </div>
+            <button type="submit" class="btn btn-outline-success btn-rounded btn-block btn-lg" name="type" value="temp">一時保存</button>
+            <button type="submit" class="btn btn-outline-primary btn-rounded btn-block btn-lg" name="type" value="save">保存</button>
+          </form>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

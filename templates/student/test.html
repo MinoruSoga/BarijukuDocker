@@ -1,0 +1,39 @@
+{% extends 'student/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+<section id="student">
+<div id="test">
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
+  </ul>
+  {% endif %}  
+  <div class="container align-self-center">
+    <h5 class="text-center mb-5">テスト登録</h5>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <p>何のテストか選択してください</p>
+        <select class="form-select form-select-lg" name="test_category" required>
+          {% for test_categorie in test_categories %}
+          <option value="{{ test_categorie.pk }}">{{ test_categorie }}</option>
+          {% endfor %}
+        </select>
+      <p class="mt-5">教科を選択してください</p>
+        <!-- Default checkbox -->
+        {% for subject in subjects %}
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="{{ subject.pk }}" id="flexCheck{{ subject.pk }}" name="subjects"/>
+          <label class="form-check-label" for="flexCheck{{ subject.pk }}">{{ subject }}</label>
+        </div>
+        {% endfor %}
+
+      <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin: 20px auto 10%;">次へ</button>
+    </form>
+
+  </div>
+</div>
+</section>
+{% endblock %}

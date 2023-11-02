@@ -1,0 +1,58 @@
+@charset "UTF-8";
+main {
+  min-height: calc(100vh - 56px);
+}
+
+#intro {
+  height: 80vh;
+}
+
+#student-calendar tbody tr {
+  position: relative; /*配置位置の基準となる指定*/
+}
+#student-calendar tbody tr th.table-fixed {
+  position: sticky;
+  left: 0;
+  background-color: white !important;
+  padding: 0 0.5rem 0;
+  border: none;
+  position: absolute; /*自由に配置する指定*/
+  top: -10px; /*下寄せの指定*/
+}
+#student-calendar #plus-floating {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+section#student #atamaplus, section#student #studysapuri {
+  width: 100%;
+  max-width: 640px;
+  margin: 0px auto;
+  padding: 24px 40px 16px;
+}
+section#student .form-control {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+section#student #test {
+  width: 100%;
+  max-width: 640px;
+  margin: 0px auto;
+  padding: 24px 0px;
+}
+section#student #test td {
+  padding: 20px 6px;
+}
+@media screen and (min-width: 1024px) {
+  section#student #test {
+    padding: 24px 40px 16px;
+  }
+}
+
+section#trainer .calendar {
+  width: 100%;
+  max-width: 640px;
+  margin: 0px auto;
+  padding: 24px 40px 16px;
+}/*# sourceMappingURL=style.css.map */

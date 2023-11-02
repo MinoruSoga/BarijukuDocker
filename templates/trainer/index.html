@@ -1,0 +1,66 @@
+{% extends 'trainer/base.html' %}
+
+
+{% block content %}
+<div id="trainer-top">
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="row">
+
+          <div class="col-12 mb-2">
+            <div class="card border border-dark mb-3">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Atama+</h5>
+                <a href="#" class="btn btn-outline-primary btn-rounded">ログインページへ</a>
+              </div>
+              <div class="card-body text-dark p-3">
+                <p class="card-text">ログインID: {{ atama_plus.login_id }}</p>
+                <p class="card-text">パスワード: {{ atama_plus.password }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 mb-2">
+            <div class="card border border-dark mb-3">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">スタディサプリ</h5>
+                <a href="#" class="btn btn-outline-primary btn-rounded">ログインページへ</a>
+              </div>
+              <div class="card-body text-dark p-3">
+                <p class="card-text">ログインID: {{ study_sapuri.login_id }}</p>
+                <p class="card-text">パスワード: {{ study_sapuri.password }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <h5 class="">今後の予定</h5>
+        {% for meeting_schedule in meeting_schedules %}
+        <div class="card mb-3 border border-primary" data-mdb-toggle="modal" data-mdb-target="#Modal{{ meeting_schedule.id }}">
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-between">面談<span class="small">面談相手：{{ meeting_schedule.student.first_name }}{{ meeting_schedule.student.last_name }}</span></h5>
+            <p class="card-text">{{ meeting_schedule.start_date|date:"Y年m月d日" }}　{{ meeting_schedule.start_date|date:"H時i分" }}〜 {{ meeting_schedule.end_date|date:"H時i分" }}</p>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="Modal{{ meeting_schedule.id }}" tabindex="-1" aria-labelledby="ModalLabel{{ meeting_schedule.id }}" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel{{ meeting_schedule.id }}">面談内容を記入</h5>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-footer">
+                {% comment %} <button type="button" class="btn btn-primary">NEXT</button> {% endcomment %}
+                <a href="{% url 'trainer:meeting' meeting_schedule.id %}" class="btn btn-primary">NEXT</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+<div id="prof" class="mt-5 mb-5">
+  {% if is_paid == 'not paid' %}
+  <form action="{% url 'trainer:payment' %}" method="POST" class="text-center my-4">
+    {% csrf_token %}
+    <button type="submit" id="checkout-button" class="btn btn-outline-info btn-lg">こちらにてお支払いを行なってください。</button>
+  </form>
+  {% endif %}
+  {% if messages %}
+  <ul>
+    {% for message in messages %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
+  </ul>
+  {% endif %}  
+  <div class="d-flex align-items-center h-100">
+    <div class="container">
+      <h1 class="text-center mb-5">トレーナー情報</h1>
+      <div class="row justify-content-center">
+        <div class="col-xl-5 col-md-8">
+          <form method="post" class="bg-white rounded shadow-5-strong p-5" action="{% url 'trainer:prof_update' %}">
+            {% csrf_token %}
+
+            <div class="row">
+              <div class="col">
+                <div class="mb-4">
+                  <label class="form-label small mb-0" for="{{ form.first_name.id_for_label }}">性</label>
+                  {{ form.first_name|add_class:'form-control' }}
+                </div>
+              </div>
+              <div class="col">
+                <div class="mb-4">
+                  <label class="form-label small mb-0" for="{{ form.last_name.id_for_label }}">名</label>
+                  {{ form.last_name|add_class:'form-control' }}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="mb-4">
+                  <label class="form-label small mb-0" for="{{ form.first_name_kana.id_for_label }}">性　カナ</label>
+                  {{ form.first_name_kana|add_class:'form-control' }}
+                </div>
+              </div>
+              <div class="col">
+                <div class="mb-4">
+                  <label class="form-label small mb-0" for="{{ form.last_name_kana.id_for_label }}">名　カナ</label>
+                  {{ form.last_name_kana|add_class:'form-control' }}
+                </div>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="form-label small mb-0" for="{{ form.phone_number.id_for_label }}">電話番号</label>
+              {{ form.phone_number|add_class:'form-control' }}
+            </div>
+            <div class="mb-4">
+              <label class="form-label small mb-0" for="{{ form.email.id_for_label }}">メールアドレス</label>
+              {{ form.email|add_class:'form-control' }}
+            </div>
+            <div class="mb-4">
+              <label class="form-label small mb-0" for="{{ form.zipcode.id_for_label }}">郵便番号</label>
+              {{ form.zipcode|add_class:'form-control' }}
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <div class="mb-4">
+                  <label class="form-label small mb-0" for="{{ form.prefecture.id_for_label }}">都道府県</label>
+                  {{ form.prefecture|add_class:'form-control' }}
+                </div>
+              </div>
+              <div class="col">
+                <div class="mb-4">
+                  <label class="form-label small mb-0" for="{{ form.city.id_for_label }}">市町村</label>
+                  {{ form.city|add_class:'form-control' }}
+                </div>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="form-label small mb-0" for="{{ form.address.id_for_label }}">住所</label>
+              {{ form.address|add_class:'form-control' }}
+            </div>
+            {% comment %} <div class="mb-4">
+              <label class="form-label small mb-0" for="{{ form.entry_date.id_for_label }}">入塾日</label>
+              {{ form.entry_date|add_class:'form-control' }}
+            </div> {% endcomment %}
+
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-outline-primary btn-rounded btn-block btn-lg">登録</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} {{ form }} {% endcomment %}
+{% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> {% endcomment %}
+<script>
+  $(document).ready(function () {
+      $('#id_zipcode').on('change', function () {
+          let zipcode = $(this).val();
+          if (zipcode.length === 7) {
+              $.ajax({
+                  url: '/trainer/get_address/',
+                  data: {
+                      'zipcode': zipcode,
+                      'csrfmiddlewaretoken': '{{ csrf_token }}'
+                  },
+                  type: 'POST',
+                  success: function (data) {
+                    console.log(data.address);
+                      if (data.address) {
+                          $('#id_prefecture').val(data.address.prefecture);
+                          $('#id_city').val(data.address.city);
+                          $('#id_address').val(data.address.address);
+                      } else {
+                          $('#id_prefecture').val('');
+                          $('#id_city').val('');
+                          $('#id_address').val('');
+                      }
+                  }
+              });
+          }
+      });
+  });
+</script>
+{% endblock %}
